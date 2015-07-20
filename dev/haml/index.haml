@@ -20,7 +20,7 @@
 
 				%article{"data-container" => "width_720"}
 
-					%a.link_menu{:href => "#", :title => "Sample Menu", :target => "_blank"}
+					%a.link_menu{:href => "assets/files/menu_03-25-2015.pdf", :title => "Sample Menu", :target => "_blank"}
 						%span Sample Menu
 
 					.wrap_txt
@@ -39,7 +39,8 @@
 					.wrap_txt
 						%h2 Walk Ins Welcome / No Reservations
 						%h4 380 Elgin St. / Ottawa
-						%h4 613.422.2800
+						%h4
+							%a{:href => "tel:+1-613-422-2800", :title => "Call us"} 613.422.2800
 
 				-# imagesLoaded cannot see background-images, so we add it here
 				#load_images.visuallyhidden

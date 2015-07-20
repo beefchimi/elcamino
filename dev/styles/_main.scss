@@ -10,11 +10,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	background-color: $hsl_L6;
-	background-image: url('../img/bg_elcamino.jpg');
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
+	background: $hsl_L6 url('../img/bg_elcamino.jpg') no-repeat center center fixed;
 	background-size: cover;
 }
 ::selection {
@@ -174,6 +170,9 @@ article div.wrap_txt {
 article div.wrap_txt h3 + h2 {
 	margin-top: 3.2rem;
 }
+article div.wrap_txt h4 a {
+	color: $hsl_pink;
+}
 article div.wrap_txt:last-child,
 article div.wrap_txt h2:last-child,
 article div.wrap_txt h3:last-child,
@@ -181,8 +180,6 @@ article div.wrap_txt h4:last-child {
 	margin-bottom: 0;
 }
 // --- Error 404 --- \\
-article div.wrap_error {
-}
 article div.wrap_error h5 {
 	margin-bottom: 1rem;
 	font-size: 2.8rem;
@@ -203,12 +200,14 @@ article div.wrap_error h6 a {
 article a.link_menu:hover {
 	background-color: $hsl_L100;
 }
+article div.wrap_txt h4 a:hover,
 article div.wrap_error h6 a:hover {
 	color: $hsl_L100;
 }
 article a.link_menu:active {
 	background-color: lighten($hsl_pink, 16%);
 }
+article div.wrap_txt h4 a:active,
 article div.wrap_error h6 a:active {
 	color: lighten($hsl_pink, 16%);
 }
