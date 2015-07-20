@@ -6,86 +6,41 @@ document.addEventListener('DOMContentLoaded', function() {
 	var elHTML       = document.documentElement,
 		elBody       = document.body;
 
-	// window measurement variables
-	var numScrollPos      = window.pageYOffset,
-		numWinWidth       = window.innerWidth,
-		numClientWidth    = document.documentElement.clientWidth,
-		numScrollbarWidth = numWinWidth - numClientWidth,
-		hasScrollbar      = numScrollbarWidth > 0 ? true : false;
 
-
-	// Helper: Lock / Unlock Body Scrolling
-	// ----------------------------------------------------------------------------
-	function lockBody() {
-
-		// enable overflow-y: hidden on <body>
-		elHTML.setAttribute('data-overflow', 'locked');
-
-		// if necessary, accomodate for scrollbar width
-		if (hasScrollbar) {
-			elBody.style.paddingRight = numScrollbarWidth + 'px';
-		}
-
-	}
-
-	function unlockBody() {
-
-		// disable overflow-y: hidden on <body>
-		elHTML.setAttribute('data-overflow', 'scrollable');
-
-		// if necessary, remove scrollbar width styles
-		// should be expanded to restore original padding if needed
-		if (hasScrollbar) {
-			elBody.style.paddingRight = '0px';
-		}
-
-	}
-
-
-/*
 	// secretMail: Add mailto link to home section
 	// ----------------------------------------------------------------------------
 	function secretMail() {
 
-		var mailLink = document.getElementById('contact'),
-			prefix    = 'mailto',
-			local    = 'curtis',
-			domain   = 'dulmage',
-			suffix    = 'me';
+		var elMailLink = document.getElementById('secret_email'),
+			strPrefix   = 'mailto',
+			strLocal   = 'inquiries',
+			strDomain  = 'eatelcamino',
+			strSuffix   = 'com';
 
-		mailLink.setAttribute('href', prefix + ':' + local + '@' + domain + '.' + suffix);
+		elMailLink.innerHTML = strLocal + '@' + strDomain + '.' + strSuffix;
+		elMailLink.setAttribute('href', strPrefix + ':' + strLocal + '@' + strDomain + '.' + strSuffix);
+
+		// classie.add(elBody, 'email_ready');
 
 	}
-*/
 
 
 	// onPageLoad: Main Function To Fire on Window Load
 	// ----------------------------------------------------------------------------
 	function onPageLoad() {
 
-		// finalAnimate();
+		secretMail();
+
+		var elContainer = document.getElementById('load_images');
+
+		// layout Isotope after all images have loaded
+		imagesLoaded(elContainer, function(instance) {
+
+			classie.add(elBody, 'images_loaded');
+
+		});
 
 	}
-
-
-/*
-	// finalAnimate: Inform the document when we have finished our loading animations
-	// ----------------------------------------------------------------------------
-	function finalAnimate() {
-
-		var elFooter = document.getElementsByTagName('footer')[0];
-
-		elFooter.addEventListener(animationEvent, applyReadyState);
-
-		function applyReadyState() {
-
-			classie.add(elHTML, 'ready');
-			elFooter.removeEventListener(animationEvent, applyReadyState);
-
-		}
-
-	}
-*/
 
 
 /*
@@ -107,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
-	// onPageLoad();
+	onPageLoad();
 
 
 }, false);

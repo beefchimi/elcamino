@@ -1,14 +1,65 @@
 // ==|== media queries ========================================================
 // ============================================================================
 
-@media only screen and (min-width: 480px) {
-
-}
-
 @media only screen and (min-width: 768px) {
 
+	// General Styles
+	// ----------------------------------------------------------------------------
+	section {
+		padding-left: 3.2rem;
+		padding-right: 3.2rem;
+	}
+
+	// Header
+	// ----------------------------------------------------------------------------
+	header {
+		position: relative;
+		padding-top: 6.4rem;
+		padding-bottom: 16rem;
+	}
+	// --- Main Logo --- \\
+	header div.wrap_elc-logo {
+		position: absolute;
+		top: 8.4rem;
+		left: 3.2rem;
+		margin-bottom: 0;
+	}
+
+	// Article
+	// ----------------------------------------------------------------------------
+	article {
+		position: relative;
+	}
+	// ---- Sample Menu --- \\
+	article a.link_menu {
+		position: absolute;
+		top: -2rem;
+		right: 0;
+		margin: 0;
+	}
+
+	// Footer
+	// ----------------------------------------------------------------------------
+	footer {
+		padding-top: 16rem;
+		padding-bottom: 8.4rem;
+	}
+
 }
 
-@media only screen and (min-width: 1200px) {
+
+@media only screen and (min-height: 1080px) {
+
+	// Header
+	// ----------------------------------------------------------------------------
+	header {
+		padding-bottom: 24rem;
+	}
+
+	// Footer
+	// ----------------------------------------------------------------------------
+	footer {
+		padding-top: 24rem;
+	}
 
 }

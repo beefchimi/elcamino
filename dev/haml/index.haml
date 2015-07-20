@@ -1,7 +1,7 @@
 !!!
 /[if IE 9] <html class="ie9" lang="en">
 <!--[if gt IE 9]><!-->
-%html{:lang => "en", "data-overflow" => "scrollable"}<>
+%html{:lang => "en"}<>
 	<!--<![endif]-->
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
@@ -12,29 +12,39 @@
 			/ inject:svg
 			/ endinject
 
-		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+		%main{:role => "main"}
 
-		%main{:role => "main", "data-container" => "width_1640"}
+			%section
 
-			%h2 Window Only
-			%h3 Noon – 2:30 PM
-			%h3 Tuesday to Fridays Only
+				= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
 
-			%h2 Dinner
-			%h3 5:30 PM &ndash; Late
-			%h3 Closed Mondays
+				%article{"data-container" => "width_720"}
 
-			%h2 Window
-			%h3 5:30 PM – Late
+					%a.link_menu{:href => "#", :title => "Sample Menu", :target => "_blank"}
+						%span Sample Menu
 
-			%h2 Walk Ins Welcome / No Reservations
-			%h3 380 Elgin St. / Ottawa
-			%h3 613.422.2800
+					.wrap_txt
+						%h2 Window Only
+						%h3 Noon – 2:30 PM
+						%h3 Tuesday to Fridays Only
 
-			-# Images Loaded cannot see background-images, so we add it here
-			.temp_images.visuallyhidden
-				%img{:src => "assets/img/bg_elcamino.jpg", :alt => ""}
+					.wrap_txt
+						%h2 Dinner
+						%h3 5:30 PM &ndash; Late
+						%h3 Closed Mondays
 
-		= Haml::Engine.new(File.read("dev/haml/partials/_html_footer.haml")).render
+						%h2 Window
+						%h3 5:30 PM – Late
+
+					.wrap_txt
+						%h2 Walk Ins Welcome / No Reservations
+						%h4 380 Elgin St. / Ottawa
+						%h4 613.422.2800
+
+				-# imagesLoaded cannot see background-images, so we add it here
+				#load_images.visuallyhidden
+					%img{:src => "assets/img/bg_elcamino.jpg", :alt => ""}
+
+				= Haml::Engine.new(File.read("dev/haml/partials/_html_footer.haml")).render
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

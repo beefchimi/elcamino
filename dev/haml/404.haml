@@ -9,27 +9,39 @@
 		%meta{:charset => "utf-8"}
 		%meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
 
-		%title Error 404 | Gulp Config
+		%title Error 404 | El Camino | Taco. Tequila. Raw Bar
 
 		%meta{:name => "description", :content => "you have encountered a catastrophic error. please evacuate the internet. thank you."}
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
 
-		%link{:rel => "stylesheet", :href => "assets/css/styles.min.css?v=0"}
+		%link{:rel => "stylesheet", :href => "assets/css/styles.min.css?v=1.0"}
 
 		%script
 			= Haml::Engine.new(File.read("dev/haml/partials/_js_fonts.haml")).render
 
-	%body.error_404
+	%body
+
+		#svgInject
+			/ inject:svg
+			/ endinject
 
 		%main{:role => "main"}
 
-			%section#error.error
+			%section
 
-				%article{"data-container" => ""}
+				= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
 
-					.project_content
+				%article{"data-container" => "width_720"}
 
-						%h1 Error 404
-						%h2 Nothing to see here
+					.wrap_error
+						%h5 Error 404
+						%h6
+							%a{:href => "http://eatelcamino.com", :title => "Home"} Head back home and try again.
 
-		= Haml::Engine.new(File.read("dev/haml/partials/_js_analytics.haml")).render
+				-# imagesLoaded cannot see background-images, so we add it here
+				#load_images.visuallyhidden
+					%img{:src => "assets/img/bg_elcamino.jpg", :alt => ""}
+
+				= Haml::Engine.new(File.read("dev/haml/partials/_html_footer.haml")).render
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

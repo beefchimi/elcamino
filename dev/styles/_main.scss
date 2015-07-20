@@ -6,42 +6,37 @@
 // ----------------------------------------------------------------------------
 html {
 	font-family: 'futura-pt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-body {
-	position: relative;
-	padding-left: 1.6rem;
-	padding-right: 1.6rem;
-	background-color: $hsl_bone;
-}
-::selection {
-	color: $hsl_L100;
-	background-color: $hsl_cyan;
-}
-// --- Lock Scrolling On Load --- \\
-html[data-overflow="locked"],
-html[data-overflow="locked"] body {
-	overflow-y: hidden;
-}
-html {
 	min-height: 100%;
 	overflow-y: scroll;
 }
-/*
-html[data-ready="waiting"] body {
-	overflow-y: hidden;
+body {
+	background-color: $hsl_L6;
+	background-image: url('../img/bg_elcamino.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
 }
-html[data-ready="loaded"] body {
-	overflow-y: visible;
+::selection {
+	color: $hsl_L6;
+	background-color: $hsl_pink;
 }
-*/
 
 // Transitions & Animations
 // ----------------------------------------------------------------------------
 a {
-	transition: all 260ms ease-in-out; // reconsider 'all'?
+	transition: all 260ms ease-in-out;
 }
 svg {
 	transition: fill 260ms ease-in-out;
+}
+header,
+article,
+footer {
+	transition: opacity 420ms ease-in-out;
+}
+main {
+	transition: background-color 420ms ease-in-out;
 }
 // --- Animations --- \\
 @keyframes anim360 {
@@ -77,37 +72,209 @@ svg.svg_inline {
 	margin-left: auto;
 	margin-right: auto;
 }
-[data-container="width_1640"] {
-	max-width: 164rem;
+[data-container="width_1200"] {
+	max-width: 120rem;
 }
-[data-container="width_1280"] {
-	max-width: 128rem;
+[data-container="width_720"] {
+	max-width: 72rem;
+}
+// --- Centered Content --- \\
+main {
+	display: table;
+	table-layout: fixed;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: $hsl_L6;
+}
+body.images_loaded main {
+	background-color: $hsla_L6-0;
+}
+section {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 1.6rem;
+	padding-right: 1.6rem;
 }
 
 // Header
 // ----------------------------------------------------------------------------
 header {
-	padding-top: 8rem;
-	padding-bottom: 3.2rem;
+	padding-top: 4rem;
+	padding-bottom: 8rem;
 	text-align: center;
 }
 // --- Main Logo --- \\
-.logo_main {
-	margin: 0 auto 3.2rem auto;
-	max-width: 28.8rem;
+header div.wrap_svg {
+	margin-left: auto;
+	margin-right: auto;
+}
+header div.wrap_elc-logo {
+	margin-bottom: 6.4rem;
+	width: 3.2rem;
+	height: 2.9rem;
+}
+header div.wrap_elc-logo svg {
+	fill: $hsl_L100;
+}
+header div.wrap_elc-wordmark {
+	width: 23.8rem;
+	height: 5.8rem;
+}
+header div.wrap_elc-wordmark svg {
+	fill: $hsl_pink;
+}
+
+// Article
+// ----------------------------------------------------------------------------
+article {
+	text-align: center;
+}
+// ---- Sample Menu --- \\
+article a.link_menu {
+	display: block;
+	margin: 0 auto 4.8rem auto;
+	width: 10.6rem;
+	height: 10.6rem;
+	line-height: 10.6rem;
+	background-color: $hsl_pink;
+	border-radius: 50%;
+}
+article a.link_menu span {
+	display: inline-block;
+	font-size: 1.3rem;
+	font-style: italic;
+	letter-spacing: 0.2rem;
+	line-height: 1.4;
+	vertical-align: middle;
+	text-decoration: underline;
+	text-transform: uppercase;
+	color: $hsl_L6;
+}
+// --- Text --- \\
+article div.wrap_txt h2,
+article div.wrap_txt h3,
+article div.wrap_txt h4 {
+	margin-bottom: 0.8rem;
+	font-size: 1.3rem;
+	letter-spacing: 0.2rem;
+	color: $hsl_pink;
+}
+article div.wrap_txt h2,
+article div.wrap_txt h3 {
+	text-transform: uppercase;
+}
+article div.wrap_txt h3,
+article div.wrap_txt h4 {
+	font-style: italic;
+}
+article div.wrap_txt {
+	margin-bottom: 4.8rem;
+}
+article div.wrap_txt h3 + h2 {
+	margin-top: 3.2rem;
+}
+article div.wrap_txt:last-child,
+article div.wrap_txt h2:last-child,
+article div.wrap_txt h3:last-child,
+article div.wrap_txt h4:last-child {
+	margin-bottom: 0;
+}
+// --- Error 404 --- \\
+article div.wrap_error {
+}
+article div.wrap_error h5 {
+	margin-bottom: 1rem;
+	font-size: 2.8rem;
+	letter-spacing: 0.4rem;
+	text-transform: uppercase;
+	color: $hsl_pink;
+}
+article div.wrap_error h6 {
+	font-size: 1.3rem;
+	font-style: italic;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+}
+article div.wrap_error h6 a {
+	color: $hsl_pink;
+}
+// + interaction + \\
+article a.link_menu:hover {
+	background-color: $hsl_L100;
+}
+article div.wrap_error h6 a:hover {
+	color: $hsl_L100;
+}
+article a.link_menu:active {
+	background-color: lighten($hsl_pink, 16%);
+}
+article div.wrap_error h6 a:active {
+	color: lighten($hsl_pink, 16%);
 }
 
 // Footer
 // ----------------------------------------------------------------------------
 footer {
-	padding-top: 6rem;
-	padding-bottom: 8rem;
+	padding-top: 8rem;
+	padding-bottom: 4.8rem;
 	text-align: center;
+}
+footer h4 {
+	margin-bottom: 2rem;
+	font-size: 1.3rem;
+	font-style: italic;
+	letter-spacing: 0.2rem;
+	color: $hsl_pink;
+}
+footer h5 {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 32rem;
+	font-size: 1.3rem;
+	line-height: 1.2;
+	color: $hsl_pink;
+}
+footer h5 a {
+	color: $hsl_pink;
+}
+// --- Social Links --- \\
+footer div.wrap_social {
+	margin-bottom: 6.4rem;
+}
+footer div.wrap_social a.wrap_svg {
+	display: inline-block;
+	width: 2.8rem;
+}
+footer div.wrap_social a.wrap_svg svg {
+	fill: $hsl_pink;
+}
+footer div.wrap_social a.wrap_social-twitter {
+	margin-right: 1.6rem;
+}
+// + interaction + \\
+footer h5 a:hover {
+	color: $hsl_L100;
+}
+footer div.wrap_social a.wrap_svg:hover svg {
+	fill: $hsl_L100;
+}
+footer h5 a:active {
+	color: lighten($hsl_pink, 16%);
+}
+footer div.wrap_social a.wrap_svg:active svg {
+	fill: lighten($hsl_pink, 16%);
 }
 
 // Page Load
 // ----------------------------------------------------------------------------
-// + header + \\
-.logo_main {
-	animation: animOpacity 800ms ease-in-out 200ms both;
+header,
+article,
+footer {
+	opacity: 0;
+}
+html.wf-active header,
+html.wf-active article,
+html.wf-active footer {
+	opacity: 1;
 }
